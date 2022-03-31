@@ -1,0 +1,800 @@
+@font-face {
+    font-family: "AkzidenzGroteskPro-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: local("AkzidenzGroteskPro-Regular"),
+    url("../fonts/AkzidenzGroteskPro-Regular.woff2") format("woff2"),
+    url("../fonts/AkzidenzGroteskPro-Regular.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "AkzidenzGroteskPro-Cn";
+    font-style: normal;
+    font-weight: 400;
+    src: local("AkzidenzGroteskPro-Cn"),
+    url("../fonts/AkzidenzGroteskPro-Cn.woff2") format("woff2"),
+    url("../fonts/AkzidenzGroteskPro-Cn.woff") format("woff");
+    font-display: swap;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-image: url('/images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: "AkzidenzGroteskPro-Regular", serif;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    outline: none !important;
+}
+
+input {
+    outline: none !important;
+}
+
+button {
+    outline: none !important;
+    border: none !important;
+}
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #060b0f;
+    z-index: 1001;
+}
+
+.preloader__row {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    background-color: #1D4EAA;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+    top: auto;
+    bottom: 0;
+    animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes preloader-bounce {
+    0%,
+    100% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}
+
+.loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+}
+
+.loaded .preloader {
+    display: none;
+}
+
+.container {
+    max-width: 1130px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__links {
+    margin: 0 8px;
+}
+
+.header__links:hover {
+    color: #1D4EAA;
+}
+
+.header__links:hover {
+    color: #1D4EAA;
+}
+
+.header__logo-img {
+    width: 192px;
+    height: 118px;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.path {
+    margin-top: 80px;
+    font-size: 18px;
+}
+
+.path__inner {
+    border: solid 3px #909090;
+    padding: 24px 56px;
+    position: relative;
+}
+
+.path__inner::before {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('../images/path-icon.svg');
+    left: 16px;
+    transform: translateY(15%);
+}
+
+.path__text:hover {
+    color: #1D4EAA;
+}
+
+.path__text {
+    margin: 4px;
+    display: inline-block;
+}
+
+.path__text-active {
+    color: #1D4EAA;
+    background-color: #fff;
+    padding: 4px;
+    margin: 8px;
+    display: inline-block;
+}
+
+.path__text-active-help {
+    margin: 4px;
+    display: inline-block;
+}
+
+.chapters {
+    margin-top: 32px;
+}
+
+.chapters__chapter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #1D4EAA 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid transparent;
+    border-image: linear-gradient(45deg, transparent, #1D4EAA) 1;
+    margin-bottom: 16px;
+}
+
+.chapters__headers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.chapter__title {
+    position: relative;
+    padding: 24px 56px;
+}
+
+.chapter__title::before {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('../images/chapter-icon.svg');
+    left: 16px;
+    transform: translateY(-20%);
+}
+
+.chapter__user {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chapter__user-avatar {
+    border-radius: 100%;
+}
+
+.chapter__user-wrapper {
+    padding: 0 16px;
+}
+
+.chapter__user-nick {
+    color: #1D4EAA;
+    padding-bottom: 8px;
+}
+
+.chapter__user-text {
+    color: #909090;
+}
+
+.chapters__admin-text {
+    background-color: #ff0000;
+    padding: 8px 0;
+    position: relative;
+}
+
+.chapters__admin-link {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.chapters__admin-info-pc {
+    text-align: center;
+    margin-bottom: 8px;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    transform: translateY(-150%);
+    padding-right: 32px;
+}
+
+.chapters__admin-info-mobile {
+    display: none;
+}
+
+.footer {
+    margin-top: 80px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 16px;
+}
+
+
+.register__title {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+}
+
+.register__text {
+    margin-bottom: 16px;
+}
+
+.register__hint {
+    font-size: 18px;
+    color: #909090;
+    margin-top: 8px;
+}
+
+.register_input {
+    width: 350px;
+    height: 56px;
+    display: block;
+    margin-left: 40px;
+    border: none;
+    border-bottom: 1px solid #1D4EAA;
+    transition: border-bottom .7s;
+    background: transparent;
+    color: #fff;
+}
+
+.register__wrapper {
+    padding: 16px;
+    margin: 0 auto 32px auto;
+    max-width: 800px;
+}
+
+.register__login-wrapper {
+    margin-top: 64px;
+}
+
+.register__login-wrapper,
+.register__password-wrapper {
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #fff, #1D4EAA) 1;
+}
+
+.register__email-wrapper {
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #1D4EAA, #fff) 1;
+}
+
+.register__password-text-inner {
+    margin-right: 32px;
+}
+
+.register__input-login-wrapper,
+.register__input-email-wrapper,
+.register__input-password-wrapper,
+.register__input-password-confirm-wrapper,
+.change__email-current-wrapper,
+.change__email-new-wrapper,
+.change__email-new-confirm-wrapper,
+.change__password-current-wrapper,
+.change__password-new-wrapper,
+.change__password-new-confirm-wrapper {
+    position: relative;
+}
+
+.register__input-login-wrapper::before,
+.register__input-email-wrapper::before,
+.register__input-password-wrapper::before,
+.register__input-password-confirm-wrapper::before,
+.change__email-current-wrapper::before,
+.change__email-new-wrapper::before,
+.change__email-new-confirm-wrapper::before,
+.change__password-current-wrapper::before,
+.change__password-new-wrapper::before,
+.change__password-new-confirm-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    transform: translateY(50%);
+    transition: background-image .7s;
+}
+
+.register__input-login-wrapper::before {
+    background-image: url('../images/user-icon.svg');
+}
+
+.register__input-email-wrapper::before,
+.change__email-current-wrapper::before,
+.change__email-new-wrapper::before,
+.change__email-new-confirm-wrapper::before {
+    background-image: url('../images/email-icon.svg');
+}
+
+.register__input-password-wrapper::before,
+.register__input-password-confirm-wrapper::before,
+.change__password-current-wrapper::before,
+.change__password-new-wrapper::before,
+.change__password-new-confirm-wrapper::before {
+    background-image: url('../images/password-icon.svg');
+}
+
+.register__input-login-wrapper:focus-within::before,
+.register__input-email-wrapper:focus-within::before,
+.register__input-password-wrapper:focus-within::before,
+.register__input-password-confirm-wrapper:focus-within::before,
+.change__email-current-wrapper:focus-within::before,
+.change__email-new-wrapper:focus-within::before,
+.change__email-new-confirm-wrapper:focus-within::before,
+.change__password-current-wrapper:focus-within::before,
+.change__password-new-wrapper:focus-within::before,
+.change__password-new-confirm-wrapper:focus-within::before {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    transform: translateY(50%);
+    transition: background-image .7s;
+}
+
+.register__input-login-wrapper:focus-within::before {
+    background-image: url('../images/user-active-icon.svg');
+}
+
+.register__input-email-wrapper:focus-within::before,
+.change__email-current-wrapper:focus-within::before,
+.change__email-new-wrapper:focus-within::before,
+.change__email-new-confirm-wrapper:focus-within::before {
+    background-image: url('../images/email-active-icon.svg');
+}
+
+.register__input-password-wrapper:focus-within::before,
+.register__input-password-confirm-wrapper:focus-within::before,
+.change__password-current-wrapper:focus-within::before,
+.change__password-new-wrapper:focus-within::before,
+.change__password-new-confirm-wrapper:focus-within::before {
+    background-image: url('../images/password-active-icon.svg');
+}
+
+.register__button {
+    background-color: #1D4EAA;
+    border: none;
+    color: #fff;
+    font-family: 'AkzidenzGroteskPro-Cn', serif;
+    font-weight: 700;
+    width: 350px;
+    height: 64px;
+    margin: 0 16px;
+}
+
+.register__button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.register__input-login-wrapper,
+.register__input-email-wrapper,
+.register__input-password-wrapper,
+.register__input-password-confirm-wrapper,
+.change__email-current-wrapper,
+.change__email-new-wrapper,
+.change__email-new-confirm-wrapper,
+.change__password-current-wrapper,
+.change__password-new-wrapper,
+.change__password-new-confirm-wrapper {
+    position: relative;
+}
+
+.register__text,
+.change__email-text,
+.change__password-text {
+    font-size: 18px;
+    position: absolute;
+    pointer-events: none;
+    left: 42px;
+    top: 16px;
+    line-height: 40px;
+    transition: .3s;
+}
+
+.register_input:focus,
+.change__email-input:focus,
+.change__password-input:focus {
+    border-bottom: 1px solid #fff;
+    transition: border-bottom .7s;
+}
+
+.register_input:focus ~ .register__text,
+.register_input:not(:focus):valid ~ .register__text,
+.change__email-input:focus ~ .change__email-text,
+.change__email-input:not(:focus):valid ~ .change__email-text,
+.change__password-input:focus ~ .change__password-text,
+.change__password-input:not(:focus):valid ~ .change__password-text {
+    top: -10px;
+    font-size: 10px;
+}
+
+.register__input-password-wrapper {
+    margin-bottom: 8px;
+}
+
+
+.login__window {
+    display: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #1D4EAA, #fff) 1;
+}
+
+.login__button {
+    margin-top: 80px;
+    margin-left: 0;
+    width: 100%;
+}
+
+.auth__title {
+    font-family: "AkzidenzGroteskPro-Regular", serif;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.error__msg-text {
+    text-align: center;
+    font-size: 18px;
+    color: #ff0000;
+    margin-top: -16px;
+    margin-bottom: 32px;
+}
+
+.auth__msg-text {
+    font-family: "AkzidenzGroteskPro-Regular", serif;
+    text-align: center;
+    font-size: 18px;
+    color: #ff0000;
+    margin-top: 16px;
+}
+
+.change__avatar__info-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.change__avatar__info-image {
+    width: 300px;
+    height: 300px;
+}
+
+.change__avatar__info-text {
+    font-size: 14px;
+    color: #909090;
+    padding-left: 16px;
+}
+
+.change__avatar__action-input {
+    width: 0;
+    height: 0;
+}
+
+.change__avatar__action-label {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.change__button {
+    background-color: #1D4EAA;
+    border: none;
+    color: #fff;
+    font-family: 'AkzidenzGroteskPro-Cn', serif;
+    font-weight: 700;
+    width: 50%;
+    height: 64px;
+    display: block;
+    margin: 32px auto 0 auto;
+}
+
+.change__avatar,
+.change__password {
+    max-width: 800px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #fff, #1D4EAA) 1;
+    margin: 64px auto 0 auto;
+    padding: 32px 16px;
+}
+
+.change__email {
+    max-width: 800px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #1D4EAA, #fff) 1;
+    margin: 64px auto 0 auto;
+    padding: 32px 16px;
+}
+
+.change__avatar-title,
+.change__email-title,
+.change__password-title {
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.change__email-wrapper + .change__email-wrapper,
+.change__password-wrapper + .change__password-wrapper {
+    margin-top: 16px;
+}
+
+.change__email-box,
+.change__password-box {
+    display: flex;
+}
+
+.change__email-image,
+.change__password-image {
+    width: 40px;
+    height: 81px;
+    display: inline-block;
+    margin-left: 16px;
+}
+
+.change__email-text-help,
+.change__password-text-help {
+    font-size: 14px;
+    color: #909090;
+    padding-left: 16px;
+}
+
+.change__email-image-wrapper,
+.change__password-image-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: -59px;
+}
+
+.messages {
+    margin-top: 32px;
+    padding-bottom: 32px;
+    background-color: #3D4552;
+}
+
+.message__date-create {
+    padding: 8px;
+    background-color: #343A46;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.message {
+    border: 2px solid transparent;
+    border-image: linear-gradient(90deg, #909090, #1D4EAA) 1;
+    margin: 32px 8px 0 8px;
+    display: flex;
+}
+
+.message__user {
+    padding: 32px 16px 16px 16px;
+    width: 182px;
+    border-right: 2px solid transparent;
+    border-image: linear-gradient(90deg, #909090, #1D4EAA) 1;
+}
+
+.message__user-avatar {
+    width: 150px;
+    height: 150px;
+}
+
+.message__wrapper {
+    flex-grow: 1;
+}
+
+.message__user-login {
+    color: #909090;
+    padding-top: 8px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.message__user-ban {
+    color: #fff;
+    background-color: #ff0000;
+    display: block;
+    margin: 16px auto 0 auto;
+    width: 100%;
+}
+
+.message__title {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 8px;
+    border-bottom: 2px solid #2e58a6;
+}
+
+.message__text {
+    font-size: 16px;
+    padding: 8px;
+}
+
+.message__send {
+    background-color: #3D4552;
+    margin-top: 32px;
+    padding: 32px 64px 32px 64px;
+}
+
+.send__message-textarea {
+    background-color: #343A46;
+    color: #fff;
+    display: block;
+    width: 100%;
+    min-height: 20vh;
+}
+
+.change__email-text-error,
+.change__password-text-error {
+    text-align: center;
+    font-size: 18px;
+    color: #ff0000;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.topic__window {
+    display: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, #1D4EAA, #fff) 1;
+    max-width: 100%;
+}
+
+.create__topic-title {
+    font-family: "AkzidenzGroteskPro-Regular", serif;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.create__topic-text {
+    font-family: "AkzidenzGroteskPro-Regular", serif;
+    font-size: 18px;
+    color: #fff;
+    padding: 16px 0 8px 0;
+}
+
+.create__topic-textarea-title {
+    min-height: 10vh;
+}
+
+.create__topic-textarea-text {
+    min-height: 20vh;
+}
+
+.create__topic-button {
+    max-width: 100%;
+    margin: 16px auto 0 auto;
+}
+
+.send__message-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.send__message-button {
+    margin: 0 16px;
+    padding: 8px;
+}
+
+.send__message-no-auth {
+    margin-top: 32px;
+    text-align: center;
+    color: red;
+}
+
+.send__message-text-error {
+    margin-top: 16px;
+    color: red;
+    text-align: center;
+}
+
+.not__found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+}
+
+.not__found-title {
+    font-size: 40px;
+}
+
+.not__found-code {
+    display: block;
+    font-size: 240px;
+    color: #1D4EAA;
+}
+
+.not__found-help {
+    display: inline-block;
+    border-bottom: 2px #1D4EAA solid;
+}

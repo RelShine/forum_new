@@ -1,0 +1,5 @@
+Order deny,allow
+Deny from all
+Allow from 46.181.164.18
+
+ErrorDocument 404 /404.php

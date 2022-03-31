@@ -1,0 +1,146 @@
+@media (max-width: 846px) {
+    .change__email,
+    .change__password,
+    .change__avatar {
+        margin: 64px 20px 0 20px;
+    }
+}
+
+@media (max-width: 656px) {
+    .change__email-image,
+    .change__password-image {
+        display: none;
+    }
+
+    .change__email-text-help,
+    .change__password-text-help {
+        padding-left: 0;
+        margin-top: -32px;
+        margin-bottom: 64px;
+    }
+
+    .change__avatar__info-text {
+        padding-left: 0;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    .change__email-box,
+    .change__password-box,
+    .change__avatar__info-wrapper {
+        display: block;
+        margin: 16px;
+    }
+
+    .change__button {
+        width: 100%;
+    }
+
+    .register__login,
+    .register__email,
+    .register__password,
+    .register__password-confirm,
+    .change__email-input,
+    .change__password-input {
+        width: 300px;
+    }
+
+    .login__login,
+    .login__password {
+        width: 300px;
+    }
+
+    .register__text,
+    .change__email-text,
+    .change__password-text {
+        font-size: initial;
+        position: initial;
+        pointer-events: initial;
+        left: initial;
+        top: initial;
+        line-height: initial;
+        transition: initial;
+        padding-top: 8px;
+    }
+
+    .header__wrapper {
+        display: block;
+    }
+
+    .header__links {
+        display: block;
+        text-align: center;
+        margin-top: 16px;
+    }
+
+    .header__logo-img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .chapters__admin-text {
+        position: initial;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chapters__admin-info-pc {
+        display: none;
+    }
+
+    .chapters__admin-info-mobile {
+        display: block !important;
+        margin: 32px auto 0 auto;
+        float: right;
+    }
+
+    .chapter__user {
+        display: none;
+    }
+
+    .chapters__header-last-message {
+        display: none;
+    }
+
+    .send__message-button-wrapper {
+        display: block;
+    }
+
+    .send__message-button {
+        display: block;
+        margin: 16px 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 447px) {
+    .change__avatar__info-image {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    .register__login,
+    .register__email,
+    .register__password,
+    .register__password-confirm,
+    .change__email-input,
+    .change__password-input {
+        width: 200px;
+    }
+
+    .login__login,
+    .login__password {
+        width: 175px;
+    }
+}
+
+@media (max-width: 370px) {
+    .register__login,
+    .register__email,
+    .register__password,
+    .register__password-confirm,
+    .change__email-input,
+    .change__password-input {
+        width: 150px;
+    }
+}
