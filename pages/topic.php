@@ -4,7 +4,6 @@ require_once __DIR__ . '/../templates/header.php';
 unset($_SESSION['index']);
 $dbh = require_once __DIR__ . '/../core/connection.php';
 $id_topic = $_GET['id'];
-
 ?>
     <title>Форум Почты России - Страница темы</title>
     </head>
@@ -89,13 +88,13 @@ $id_topic = $_GET['id'];
                 '<p class="message__date-create">' . $time_topic['time'] . '</p>' .
                 '<div class="message">
                 <div class="message__user">' .
-                '<img src="data:image/jpeg;base64,' . base64_encode($first_login['avatar']) . '" class="change__avatar__info-image" style="width: 150px; height: 150px;">';
+                '<img src='.$first_login['avatar'].' class="change__avatar__info-image" style="width: 150px; height: 150px;">';
             if ($first_login['login'] == 'Babinov') {
                 echo '<p class="message__user-login" style="color: red;">' . $first_login['login'] . '</p>' . '<p style="color: red; text-align: center; margin-top: 8px; font-size: 14px;">АДМИНИСТРАТОР</p>';
             } else {
                 echo '<p class="message__user-login">' . $first_login['login'] . '</p>';
-                echo '
-                <button class="message__user-ban" type="submit">БАН</button>';
+//                echo '
+//                <button class="message__user-ban" type="submit">БАН</button>';
             }
             echo
             '</div>
@@ -113,15 +112,15 @@ $id_topic = $_GET['id'];
                 echo
                     '<div class="message">
                 <div class="message__user">' .
-                    '<img src="data:image/jpeg;base64,' . base64_encode($logins[$i][1]) . '" class="change__avatar__info-image" style="width: 150px; height: 150px;">';
+                    '<img src='.$logins[$i][1] .' " class="change__avatar__info-image" style="width: 150px; height: 150px;">';
                 if ($logins[$i][0] == 'Babinov') {
                     echo '<p class="message__user-login" style="color: red;">' . $logins[$i][0] . '</p>' . '<p style="color: red; text-align: center; margin-top: 8px; font-size: 14px;">АДМИНИСТРАТОР</p>';
                 } else {
                     echo '<p class="message__user-login">' . $logins[$i][0] . '</p>';
-                    echo '
-                    <form action="/core/ban-user.php" method="get">' .
-                        '<button class="message__user-ban" type="submit" name="ban" value="' . $logins[$i][0] . '">'. 'БАН</button>' .
-                        '</form>';
+//                    echo '
+//                    <form action="/core/ban-user.php" method="get">' .
+//                        '<button class="message__user-ban" type="submit" name="ban" value="' . $logins[$i][0] . '">'. 'БАН</button>' .
+//                        '</form>';
 
                 }
                 echo

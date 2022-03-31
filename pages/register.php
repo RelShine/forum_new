@@ -1,13 +1,9 @@
 <?php
-
 session_start();
-
 if (isset($_SESSION['auth'])) {
     header("Location: /index.php");
 }
-
 require_once __DIR__ . '/../templates/header.php';
-
 unset($_SESSION['index']);
 ?>
     <title>Форум Почты России - Регистрация</title>

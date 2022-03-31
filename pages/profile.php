@@ -1,19 +1,10 @@
 <?php
-
-use App\Database;
-
 session_start();
-
+$dbh = require_once __DIR__ . '/../core/connection.php';
 if (!isset($_SESSION['auth'])) {
     header("Location: /index.php");
 }
-
 require_once __DIR__ . '/../templates/header.php';
-require_once __DIR__ . '/../vendor/autoload.php';
-
-$dbh = new Database;
-$dbh->connect();
-
 unset($_SESSION['index']);
 ?>
     <title>Форум Почты России - Профиль</title>
@@ -61,7 +52,7 @@ unset($_SESSION['index']);
                 $query_avatar = $dbh->prepare('SELECT `avatar` FROM `users` WHERE `id` = :id_user');
                 $query_avatar->execute(['id_user' => $id_user]);
                 $avatar_arr = $query_avatar->fetch(PDO::FETCH_ASSOC);
-                echo '<img src="data:image/jpeg;base64,' . base64_encode($avatar_arr['avatar']) . '" class="change__avatar__info-image" style="width: 300px; height: 300px;">';
+                echo '<img src='.$avatar_arr['avatar'].' class="change__avatar__info-image" style="width: 300px; height: 300px;">';
                 ?>
                 <p class="change__avatar__info-text">Поддерживаются только файлы формата jpg, png.
                     Рекомендуются квадратные картинки, так как картинка

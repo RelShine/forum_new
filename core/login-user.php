@@ -6,9 +6,7 @@ $login = $_POST['login'];
 $password = $_POST['password'];
 
 $queryPassword = $dbh->prepare('SELECT COUNT(`password`) as count, `password`, `id` FROM `users` WHERE `login` = :login');
-
 $queryPassword->execute(['login' => $login]);
-
 $countPassword = $queryPassword->fetch(PDO::FETCH_ASSOC);
 
 if ($countPassword['count'] < 1) {

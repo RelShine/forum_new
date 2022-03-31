@@ -1,19 +1,9 @@
 <?php
-
-use App\Database;
-
 session_start();
-
 require_once __DIR__ . '/../templates/header.php';
-require_once __DIR__ . '/../vendor/autoload.php';
-
 unset($_SESSION['index']);
-
-$dbh = new Database;
-$dbh->connect();
-
+$dbh = require_once __DIR__ . '/../core/connection.php';
 $id = $_GET['id'];
-
 $idChapters = $dbh->prepare('SELECT COUNT(`id`) as count, `chapter` FROM `chapters` WHERE `id` = :id');
 $idChapters->execute(['id' => $id]);
 $arrIdChapters = $idChapters->fetch(PDO::FETCH_ASSOC);
@@ -123,7 +113,7 @@ if ($arrIdChapters['count'] < 1) {
                     '<a class="chapter__title" href="/pages/topic.php?id=' . $query11_res[$id_topic][0] . '">' . $topic[1] . '</a>' .
                     '<div class="chapter__user">' .
                     '<div class="chapter__user-avatar-wrapper">' .
-                    '<img src="data:image/jpeg;base64,' . base64_encode($last_message_arr['avatar']) . '" class="chapter__user-avatar" alt="Аватар" width="42" height="42">' .
+                    '<img src='.$last_message_arr['avatar'].' class="chapter__user-avatar" alt="Аватар" width="42" height="42">' .
                     '</div>' .
                     '<div class="chapter__user-wrapper">';
                 if ($last_message_arr['login'] == 'Babinov') {

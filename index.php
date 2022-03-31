@@ -1,35 +1,17 @@
 <?php
-
-use App\Database;
-
 session_start();
-
 require_once __DIR__ . '/templates/header.php';
-require_once __DIR__ . '/vendor/autoload.php';
-
-$dbh = new Database;
-$dbh->connect();
-
+$dbh = require_once __DIR__ . '/core/connection.php';
 if (isset($_SESSION['auth'])) {
     $login = $_SESSION['login'];
-
-    $queryExist = $dbh->prepare('SELECT COUNT(`login`) FROM `users` WHERE `login` = :login');
+    $queryExist = $dbh->prepare('SELECT COUNT(`login`) as count FROM `users` WHERE `login` = :login');
     $queryExist->execute(['login' => $login]);
     $arrExist = $queryExist->fetchColumn();
-
-    if (count($arrExist) > 0) {
+    if ($arrExist['count'] > 0) {
         $_SESSION['index'] = 'yes';
     } else {
         session_destroy();
     }
-//    $queryBan = $dbh->query('SELECT `login`, `banned` FROM `users` WHERE `banned` = 1");
-//
-//    $ban_arr = mysqli_fetch_all($query_ban);
-//    foreach ($ban_arr as $ban_user) {
-//        if ($ban_user[0] === $login) {
-//            exit('Вы были заблокированы');
-//        }
-//    }
 }
 ?>
     <title>Форум Почты России - Главная страница</title>
